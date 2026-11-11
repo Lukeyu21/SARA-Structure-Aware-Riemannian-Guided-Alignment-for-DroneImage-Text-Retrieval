@@ -4,12 +4,35 @@
 
 ## Repository Structure
 
-- `train.py`: distributed training entry point
-- `test_single.py`: single-run retrieval evaluation
-- `engine.py`, `data.py`, `utils.py`: training, data loading, and shared utilities
-- `layers/`: visual/text encoders, VCSR model, SPD modules, and alignment losses
-- `option/`: YAML experiment configurations
-- `vocab/`: dataset vocabulary files
+```text
+SARA/
+├── train.py                     # Distributed training entry point
+├── test_single.py               # Single-run retrieval evaluation
+├── testV.py                     # Additional evaluation script
+├── data.py                      # Dataset and DataLoader definitions
+├── engine.py                    # Training and validation loops
+├── utils.py                     # Losses, metrics, and checkpoint utilities
+├── vocab.py                     # Vocabulary loading utilities
+├── layers/                      # Model and feature-extraction modules
+│   ├── VCSR.py                  # Main retrieval model
+│   ├── spdnet.py                # SPD feature processing
+│   ├── lesa_modules.py          # Log-Euclidean structural alignment
+│   ├── rest_v2.py               # RestV2 visual encoder
+│   ├── xvlm.py                  # Vision-language model components
+│   └── ...                      # Supporting layers and operations
+├── option/                      # Dataset and experiment YAML files
+├── vocab/                       # Dataset vocabulary JSON files
+├── bert-base-uncased/           # BERT tokenizer/config files
+├── Rct/                         # Retrieval-related utility scripts
+└── util/                        # Data conversion utilities
+```
+
+The following are created or prepared locally and are not tracked by Git:
+
+- `data/`: datasets and preprocessed features
+- `restv2_base_224.pth` and `bert-base-uncased/pytorch_model.bin`: pretrained weights
+- `checkpoint/`: saved model checkpoints
+- `logs/`: TensorBoard and training logs
 
 Datasets, pretrained weights, checkpoints, and TensorBoard logs are not tracked by Git.
 
