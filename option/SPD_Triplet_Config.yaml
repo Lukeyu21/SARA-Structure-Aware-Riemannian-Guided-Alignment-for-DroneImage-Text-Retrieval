@@ -1,0 +1,29 @@
+# SPD Triplet Loss 配置
+model:
+  name: 'VCSR'
+  vision_encoder: 'rest_v2'
+  text_encoder: 'bert'
+
+# SPD Triplet Loss 参数
+spd_triplet:
+  enabled: true
+  weight: 0.1  # SPD损失的权重
+  margin: 0.2  # Triplet Loss的margin参数
+  max_violation: true  # 是否使用最大违反策略
+
+# 训练参数
+optim:
+  margin: 0.2
+  max_violation: true
+  grad_clip: 2.0
+  lr_update_epoch: 30
+  lr_decay_param: 0.1
+
+# 日志设置
+logs:
+  print_freq: 100
+  ckpt_save_path: './checkpoints/'
+
+# 数据集设置
+dataset:
+  datatype: 'era'  # 或其他数据集 

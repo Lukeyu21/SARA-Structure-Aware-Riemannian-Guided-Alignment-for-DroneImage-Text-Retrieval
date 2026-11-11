@@ -1,0 +1,61 @@
+model:
+    multiscale:
+        multiscale_input_channel: 3
+        multiscale_output_channel: 1
+    cross_attention:
+        att_type: "ls_att"
+    wemb_type: glove
+    word_dim: 300
+    cache_dir: null
+    seq2vec:
+        arch: skipthoughts
+        dir_st: ./data
+        type: BayesianUniSkip
+        dropout: 0.25
+        fixed_emb: False
+    embed:
+        embed_dim: 512
+    name: VCSR
+    spdnet:
+        model_type: SPDNet
+        init_mode: svd #uniform,svd
+        bimap_manifold: stiefel #euclidean, stiefel
+        architecture: [9,4,1]
+        classifier: LogEigMLR #LogEigMLR, SPDMLR
+        metric: SPDLogCholeskyMetric #SPDLogEuclideanMetric,SPDLogCholeskyMetric
+        power: 1.
+        alpha: 1.0
+        beta: 0.0
+dataset:
+    datatype: Flicker
+    data_split:
+    data_path: './data/Flicker/Flicker_precomp/'
+    image_path: './data/Flicker/Flicker_images/'
+    vocab_path: 'vocab/Flicker.json'
+    batch_size: 200
+    batch_size_val: 200
+    workers: 3
+optim:
+    epochs: 100
+    lr: 0.00005
+    lr_decay_param: 0.7
+    lr_update_epoch: 20
+    grad_clip: 0
+    max_violation: 0
+    margin: 0.3
+    resume: false
+logs:
+    eval_step: 1
+    print_freq: 100
+    ckpt_save_path: "checkpoint/"
+    logger_name: 'logs/'
+k_fold:
+    experiment_name: 'Flicker_aba_mv_fliter_new13_i102a1_de_agg_div_ra1'
+    nums: 1
+    current_num: 0
+distributed:
+    backend: "nccl"  # 分布式通信后端，常用 "nccl" 或 "gloo"
+    rank: 0          # 当前进程的 rank
+    world_size: 1    # 总进程数（GPU 数量）
+    dist_url: "tcp://127.0.0.1:23456"  # 初始化通信的 URL
+    local_rank: 0    # 当前进程的本地 rank

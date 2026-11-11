@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.idea/
+
+# Local datasets and generated artifacts
+data/
+checkpoint/
+logs/
+
+# Pretrained model weights
+restv2_base_224.pth
+bert-base-uncased/pytorch_model.bin
+bert-base-uncased/model.safetensors
+*.pth
+*.pth.tar
+*.ckpt
+
