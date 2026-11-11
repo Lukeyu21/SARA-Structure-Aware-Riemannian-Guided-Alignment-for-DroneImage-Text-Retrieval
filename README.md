@@ -8,7 +8,6 @@
 SARA/
 ├── train.py                     # Distributed training entry point
 ├── test_single.py               # Single-run retrieval evaluation
-├── testV.py                     # Additional evaluation script
 ├── data.py                      # Dataset and DataLoader definitions
 ├── engine.py                    # Training and validation loops
 ├── utils.py                     # Losses, metrics, and checkpoint utilities
