@@ -1,6 +1,6 @@
-# SARA: Structure-Aware Riemannian-Guided Alignment
+# [SARA: Structure-Aware Riemannian-Guided Alignment](https://media.eventhosts.cc/Conferences/ECCV2026/pdfs/8852.pdf)
 
-Code for drone image-text retrieval with semantic representations and SPD-based structural alignment.
+
 
 ## Repository Structure
 
@@ -15,12 +15,12 @@ Datasets, pretrained weights, checkpoints, and TensorBoard logs are not tracked 
 
 ## Environment
 
-Python 3.8.0
-Pytorch 1.11.0
-torchvision 0.12.0
-librosa 0.9.1
-numpy 1.21.6
-tqdm 4.64.0
+* Python 3.8.0
+* Pytorch 1.11.0
+* torchvision 0.12.0
+* librosa 0.9.1
+* numpy 1.21.6
+* tqdm 4.64.0
 
 The training script requires Python, PyTorch with CUDA support, and the packages imported by this project, including `torchvision`, `transformers`, `geoopt`, `timm`, `PyYAML`, `Pillow`, `nltk`, `numpy`, `pandas`, `tensorboard_logger`, `tqdm`, `click`, `scikit-learn`, and `scipy`. Install a PyTorch/torchvision pair compatible with your CUDA installation, then install the remaining packages in your environment.
 
